@@ -6,5 +6,9 @@ authors = ["EternalMoon1234", "importly"]
 repository = "https://github.com/eternalmoon1234/mathical"
 edition = "2018"
 
+exclude = [
+    ".glitterrc"
+]
+
 [dependencies]
 
