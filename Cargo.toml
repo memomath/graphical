@@ -1,7 +1,9 @@
 [package]
 name = "mathical"
+description = "An intelligent mathematics interpreter"
 version = "0.1.0"
-authors = ["EternalizedMoonlight <68178572+EternalizedMoonlight@users.noreply.github.com>"]
+authors = ["EternalMoon1234", "importly"]
+repository = "https://github.com/eternalmoon1234/mathical"
 edition = "2018"
 
 [dependencies]
