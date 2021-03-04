@@ -3,6 +3,7 @@ name = "mathical"
 description = "An intelligent mathematics interpreter"
 version = "0.1.0"
 authors = ["EternalMoon1234", "importly"]
+license = "MIT"
 repository = "https://github.com/eternalmoon1234/mathical"
 edition = "2018"
 
