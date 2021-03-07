@@ -7,7 +7,6 @@ fn create_window() {
     let win_height = 500;
 
     let mut win = window::Window::new(100, 100, win_width, win_height, "Mathical Graph Engine");
-    win.resizable(&win);
     win.draw(move || {
         draw::set_draw_color(Color::Black);
         draw::draw_line(win_width / 2, 0, win_width / 2, win_height);
