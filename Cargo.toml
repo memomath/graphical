@@ -1,6 +1,6 @@
 [package]
 name = "mathical"
-description = "An intelligent mathematics interpreter"
+description = "An intelligent, GUI-based, and cross-platform graphing calculator, written in Rust."
 version = "0.1.0"
 authors = ["EternalMoon1234", "importly"]
 license = "MIT"
