@@ -1,9 +1,18 @@
-use fltk::{app, window::*, button::*};
+use fltk::*;
 
 fn create_window() {
+    //constants
     let app = app::App::default();
-    let mut win = Window::new(100, 100, 400, 300, "Mathical Graph Engine");
-    let but1 = Button::new(10, 10, 80, 40, "Button 1");
+    let win_width = 500;
+    let win_height = 500;
+
+    let mut win = window::Window::new(100, 100, win_width, win_height, "Mathical Graph Engine");
+    win.resizable(&win);
+    win.draw(move || {
+        draw::set_draw_color(Color::Black);
+        draw::draw_line(win_width / 2, 0, win_width / 2, win_height);
+        draw::draw_line(0, win_height / 2, win_width, win_height / 2);
+    });
 
     win.end();
     win.show();
