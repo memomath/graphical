@@ -1,8 +1,8 @@
 use fltk::*;
 
 
-fn functioner(x:i32) -> i32{
-    return x+10; // f(x)=x
+fn functioner(x:f64) -> f64 {
+    return x * x;
 }
 
 //construct window and graph function
@@ -38,9 +38,11 @@ pub fn graph() {
 
         draw::set_draw_color(Color::Blue);
 
-        for mut i in -250..251 {
-            let y = functioner(i)*2;
-            i *= 2;
+        for i  in -25000..25100 {
+            let i = i as f64 * 0.01;
+            let y = (functioner(i as f64)*8 as f64) as i32;
+            let i = i * 8 as f64;
+            let i = i as i32;
             draw::draw_point(i + 250, -y + 250);
             draw::draw_point(i-1 + 250, -y-1 + 250);
             draw::draw_point(i+1 + 250, -y+1 + 250);
