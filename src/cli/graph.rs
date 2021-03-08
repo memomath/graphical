@@ -2,7 +2,8 @@ use fltk::*;
 
 
 fn functioner(x:f64) -> f64 {
-    return x * x;
+    return x * x / 20 as f64;
+    //return x.cos() * 10 as f64;
 }
 
 //construct window and graph function
@@ -38,8 +39,8 @@ pub fn graph() {
 
         draw::set_draw_color(Color::Blue);
 
-        for i  in -25000..25100 {
-            let i = i as f64 * 0.01;
+        for i  in (-250 * 1000/37)..(251 * 1000/37) {
+            let i = i as f64 * 0.037;
             let y = (functioner(i as f64)*8 as f64) as i32;
             let i = i * 8 as f64;
             let i = i as i32;
