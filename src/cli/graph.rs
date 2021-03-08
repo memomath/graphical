@@ -2,7 +2,7 @@ use fltk::*;
 
 
 fn functioner(x:i32) -> i32{
-    return (x * x) / 80; // f(x)=x
+    return x+10; // f(x)=x
 }
 
 //construct window and graph function
@@ -38,11 +38,20 @@ pub fn graph() {
 
         draw::set_draw_color(Color::Blue);
 
-        for i in -250..251 {
-            let y = functioner(i);
+        for mut i in -250..251 {
+            let y = functioner(i)*2;
+            i *= 2;
             draw::draw_point(i + 250, -y + 250);
+            draw::draw_point(i-1 + 250, -y-1 + 250);
+            draw::draw_point(i+1 + 250, -y+1 + 250);
+            draw::draw_point(i-1 + 250, -y+1 + 250);
+            draw::draw_point(i+1 + 250, -y-1 + 250);
+            draw::draw_point(i + 250, -y-1 + 250);
+            draw::draw_point(i + 250, -y+1 + 250);
+            draw::draw_point(i-1 + 250, -y + 250);
+            draw::draw_point(i+1 + 250, -y-1 + 250);
+            draw::draw_point(i+1 + 250, -y + 250);
         }
-        
     });
 
     win.end();
