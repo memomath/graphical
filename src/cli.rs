@@ -39,7 +39,8 @@ pub mod cli {
 
 
     fn print_help_message() {
-        let help_message: &str = "
+        let help_message: &str = 
+"
 Mathical Version 1.0.0
 
 USAGE:
@@ -54,7 +55,8 @@ ACTIONS:
 
 ARGS:
     <action>         The type of action performed
-    <arguments>      Arguments to the action";
+    <arguments>      Arguments to the action
+";
 
         return println!("{}", &help_message);
     }
@@ -63,5 +65,20 @@ ARGS:
         let version: &str = "v1.0.0";
 
         return println!("{}", &version);
+    }
+
+    pub fn error(error_message: &str, usage: &str) {
+        let colored_error: &str = &"error".red().bold();
+
+        return println!(
+"
+{}: {}
+
+USAGE:
+    {}
+
+For more information, try the command {}
+", colored_error, error_message, usage, "--help".green().bold()
+        );
     }
 }
