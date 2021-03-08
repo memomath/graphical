@@ -19,7 +19,7 @@ pub fn graph() {
 
     win.draw(move || {
         // grid
-        draw::set_draw_color(Color::Blue);
+        draw::set_draw_color(Color::White);
         for i in 1..num_of_lines {
             draw::draw_line(i * num_of_places, 0, i * num_of_places, 500);
             draw::draw_line(0, i * num_of_places, 500, i * num_of_places); 
@@ -35,6 +35,8 @@ pub fn graph() {
         draw::draw_line(0, win_height / 2 + 1, win_width, win_height / 2 + 1);
         draw::draw_line(win_width / 2 - 1, 0, win_width / 2 - 1, win_height);
         draw::draw_line(0, win_height / 2 - 1, win_width, win_height / 2 - 1);
+
+        draw::set_draw_color(Color::Blue);
 
         for i in -250..251 {
             let y = functioner(i);
