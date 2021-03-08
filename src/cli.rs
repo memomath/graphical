@@ -31,6 +31,10 @@ pub mod cli {
                 print_version();
             }
 
+            "--error-test" => {
+                error("Missing argument 1.", "mathical --help");
+            }
+
             _ => {
                 println!("{}: Unknown command", "ERROR:".red());
             }
@@ -68,17 +72,17 @@ ARGS:
     }
 
     pub fn error(error_message: &str, usage: &str) {
-        let colored_error: &str = &"error".red().bold();
+        let colored_error: &str = &"error:";
 
         return println!(
 "
-{}: {}
+{} {}
 
 USAGE:
     {}
 
 For more information, try the command {}
-", colored_error, error_message, usage, "--help".green().bold()
+", colored_error.red().bold(), error_message, usage, "--help".green().bold()
         );
     }
 }
