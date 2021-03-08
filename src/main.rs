@@ -18,7 +18,7 @@ fn create_window() {
         // grid
         draw::set_draw_color(Color::Blue);
         for i in 1..num_of_lines {
-            draw::draw_line(i * num_of_places, 0, i * num_of_places, 500);
+            draw::draw_line(i * num_of_places, 0, i * num_of_places, 500); //hello are yo uhere
             draw::draw_line(0, i * num_of_places, 500, i * num_of_places);
         }
 
