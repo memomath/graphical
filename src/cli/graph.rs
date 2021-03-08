@@ -2,7 +2,7 @@ use fltk::*;
 
 
 fn functioner(x:f64) -> f64 {
-    return x * x / 20 as f64;
+    return (((2 as f64) + (2 as f64).powf(x)).sin()) * 1.4 as f64;
     //return x.cos() * 10 as f64;
 }
 
