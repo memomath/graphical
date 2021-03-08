@@ -1,9 +1,9 @@
 enum Grammar {
-    add,
-    subtract,
-    divide,
-    multiply,
-    exponent
+    Add,
+    Subtract,
+    Divide,
+    Multiply,
+    Exponent
 }
 
 struct ParseNode {

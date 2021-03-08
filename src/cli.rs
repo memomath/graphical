@@ -37,10 +37,7 @@ pub mod cli {
             }
         }
 
-        
-
-        let parsedEquation = parser::parser::parse();
-        //the graph() function needs to take a parameter of the parsedEquatuon
+        let _parsed_equation = parser::parser::parse();
     }
 
     fn print_help_message() {
