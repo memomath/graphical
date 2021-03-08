@@ -7,9 +7,6 @@ license = "MIT"
 repository = "https://github.com/eternalmoon1234/mathical"
 edition = "2018"
 
-exclude = [
-    ".glitterrc"
-]
-
 [dependencies]
 fltk = "0.15.6"
+structopt = "0.0.3"
