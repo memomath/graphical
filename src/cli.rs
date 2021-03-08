@@ -37,7 +37,7 @@ pub mod cli {
             }
         }
 
-        let _parsed_equation = parser::parser::parse();
+        let _parsed_equation: () = parser::parser::parse();
     }
 
     fn print_help_message() {
