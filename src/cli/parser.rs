@@ -11,7 +11,7 @@ struct ParseNode {
     entry: Grammar,
 }
 pub mod parser {
-    pub fn analyze() {
+    pub fn parse() {
 
     }
 }

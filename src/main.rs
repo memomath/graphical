@@ -1,5 +1,5 @@
 mod cli;
 
 fn main() {
-    cli::cli::cli_init();
+    cli::cli::init();
 } 
