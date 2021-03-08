@@ -1,10 +1,11 @@
 use fltk::*;
 
 
-fn functioner(x:i32)->i32{
+fn functioner(x:i32) -> i32{
     return (x * x)/80; // f(x)=x
 }
 
+//construct window
 pub fn graph() {
     //constants
     let app = app::App::default();
@@ -12,9 +13,10 @@ pub fn graph() {
     let win_height = 500;
 
     let num_of_lines = 50;
-    let num_of_places = win_width/num_of_lines;
+    let num_of_places = win_width / num_of_lines;
 
     let mut win = window::Window::new(100, 100, win_width, win_height, "Mathical Graph Engine");
+
     win.draw(move || {
         // grid
         draw::set_draw_color(Color::Blue);
@@ -29,10 +31,10 @@ pub fn graph() {
         draw::draw_line(0, win_height / 2, win_width, win_height / 2);
 
         //thicker lines
-        draw::draw_line(win_width / 2+1, 0, win_width / 2+1, win_height);
-        draw::draw_line(0, win_height / 2+1, win_width, win_height / 2+1);
-        draw::draw_line(win_width / 2-1, 0, win_width / 2-1, win_height);
-        draw::draw_line(0, win_height / 2-1, win_width, win_height / 2-1);
+        draw::draw_line(win_width / 2 + 1, 0, win_width / 2 + 1, win_height);
+        draw::draw_line(0, win_height / 2 + 1, win_width, win_height / 2 + 1);
+        draw::draw_line(win_width / 2 - 1, 0, win_width / 2 - 1, win_height);
+        draw::draw_line(0, win_height / 2 - 1, win_width, win_height / 2 - 1);
 
         for i in -250..251 {
             let y = functioner(i);
