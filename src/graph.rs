@@ -2,7 +2,7 @@ use fltk::*;
 
 
 fn functioner(x:i32) -> i32{
-    return (x * x)/80; // f(x)=x
+    return (x * x) / 80; // f(x)=x
 }
 
 //construct window
