@@ -14,9 +14,54 @@ pub mod cli {
                 println!("{}", "Successfully graphed!".green().bold());
                 graph::graph();
             }
+
+            "--help" => {
+                print_help_message();
+            }
+
+            "-h" => {
+                print_help_message();
+            }
+
+            "--version" => {
+                print_version();
+            }
+
+            "-v" => {
+                print_version();
+            }
+
             _ => {
                 println!("{}: Unknown command", "ERROR:".red());
             }
         }
+    }
+
+
+    fn print_help_message() {
+        let help_message: &str = "
+Mathical Version 1.0.0
+
+USAGE:
+mathical <action> [arguments]
+
+FLAGS:
+    -h, --help       Prints help information
+    -v, --version    Prints version information
+
+ACTIONS:
+    graph <args>     Creates a window with graph of the function or equation provided
+
+ARGS:
+    <action>         The type of action performed
+    <arguments>      Arguments to the action";
+
+        return println!("{}", &help_message);
+    }
+
+    fn print_version() {
+        let version: &str = "v1.0.0";
+
+        return println!("{}", &version);
     }
 }
