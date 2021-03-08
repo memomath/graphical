@@ -5,7 +5,7 @@ fn functioner(x:i32) -> i32{
     return (x * x) / 80; // f(x)=x
 }
 
-//construct window
+//construct window and graph function
 pub fn graph() {
     //constants
     let app = app::App::default();

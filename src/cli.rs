@@ -1,15 +1,28 @@
-pub fn cli_init() {
-    let args: Vec<String> = std::env::args().collect();
-    
-    let first_argument: &str = &*args[1].to_lowercase();
+pub mod graph;
 
-    match first_argument {
-        "graph" => {
-            graph();
-        }
+pub mod cli {
+    use super::graph;
 
-        _ => {
-            println!("Unknown command");
+    //help message
+    pub fn help() {
+        println!("no help for you")
+    }
+
+    pub fn cli_init() {
+        let args: Vec<String> = std::env::args().collect();
+        let first_argument: &str = &*args[1].to_lowercase();
+
+        match first_argument {
+            "graph" => {
+                graph::graph();
+            }
+            
+            "help" => {
+                help();
+            }
+            _ => {
+                println!("Unknown command");
+            }
         }
     }
 }
