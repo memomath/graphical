@@ -14,20 +14,11 @@ pub mod cli {
                 println!("{}", "Successfully graphed!".green().bold());
                 graph::graph();
             }
-
-            "--help" => {
+            "--help" | "-h" => {
                 print_help_message();
             }
 
-            "-h" => {
-                print_help_message();
-            }
-
-            "--version" => {
-                print_version();
-            }
-
-            "-v" => {
+            "--version" | "-v" => {
                 print_version();
             }
 
