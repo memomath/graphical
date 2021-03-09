@@ -1,7 +1,8 @@
 use fltk::*;
 
 
-fn functioner(x:f64) -> f64 {
+fn functioner(mut x:f64) -> f64 {
+    x = x/(5 as f64);
     return x * x * x;
     //return x.cos() * 10 as f64;
 }
@@ -43,9 +44,9 @@ pub fn graph() {
         let mut last_y = 0;
         let mut set = false;
 
-        for x in -250 * 10..251 * 10 {
-            let x = x as f64 * 0.1;
-            let y = (functioner(x as f64) * 8 as f64) as i32 + 250;
+        for x in -250 * 100/5..251 * 100/5 {
+            let x = x as f64 * 0.05;
+            let y = -((functioner(x as f64) * 8 as f64) as i32) + 250;
             let x = (x * 8 as f64) as i32 + 250;
 
             if set {
@@ -58,23 +59,6 @@ pub fn graph() {
                 set = true;
             }
         }
-
-        // for i  in (-250 * 1000/37)..(251 * 1000/37) {
-        //     let i = i as f64 * 0.037;
-        //     let y = (functioner(i as f64) * 8 as f64) as i32;
-        //     let i = (i * 8 as f64) as i32;
-        //     draw::draw_point(i + 250, -y + 250);
-        //     draw::draw_point(i-1 + 250, -y-1 + 250);
-        //     draw::draw_point(i+1 + 250, -y+1 + 250);
-        //     draw::draw_point(i-1 + 250, -y+1 + 250);
-        //     draw::draw_point(i+1 + 250, -y-1 + 250);
-        //     draw::draw_point(i + 250, -y-1 + 250);
-        //     draw::draw_point(i + 250, -y+1 + 250);
-        //     draw::draw_point(i-1 + 250, -y + 250);
-        //     draw::draw_point(i+1 + 250, -y-1 + 250);
-        //     draw::draw_point(i+1 + 250, -y + 250);
-        // }
-    });
 
     win.end();
     win.show();
