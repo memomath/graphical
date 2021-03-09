@@ -2,12 +2,8 @@ use fltk::*;
 
 
 fn functioner(x:f64) -> f64 {
-    return x * x * x
+    return x * x * x;
     //return x.cos() * 10 as f64;
-
-
-fn functioner(x: f64) -> f64 {
-    return x.powf(4.0);
 }
 
 //construct window and graph function
