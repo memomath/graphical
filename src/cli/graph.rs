@@ -2,7 +2,7 @@ use fltk::*;
 
 
 fn functioner(x:f64) -> f64 {
-    return (((2 as f64) + (2 as f64).powf(x)).sin()) * 1.4 as f64;
+    return x * x * x
     //return x.cos() * 10 as f64;
 }
 
@@ -39,22 +39,41 @@ pub fn graph() {
 
         draw::set_draw_color(Color::Blue);
 
-        for i  in (-250 * 1000/37)..(251 * 1000/37) {
-            let i = i as f64 * 0.037;
-            let y = (functioner(i as f64)*8 as f64) as i32;
-            let i = i * 8 as f64;
-            let i = i as i32;
-            draw::draw_point(i + 250, -y + 250);
-            draw::draw_point(i-1 + 250, -y-1 + 250);
-            draw::draw_point(i+1 + 250, -y+1 + 250);
-            draw::draw_point(i-1 + 250, -y+1 + 250);
-            draw::draw_point(i+1 + 250, -y-1 + 250);
-            draw::draw_point(i + 250, -y-1 + 250);
-            draw::draw_point(i + 250, -y+1 + 250);
-            draw::draw_point(i-1 + 250, -y + 250);
-            draw::draw_point(i+1 + 250, -y-1 + 250);
-            draw::draw_point(i+1 + 250, -y + 250);
+        let mut last_x = 0;
+        let mut last_y = 0;
+        let mut set = false;
+
+        for x in -250 * 10..251 * 10 {
+            let x = x as f64 * 0.1;
+            let y = (functioner(x as f64) * 8 as f64) as i32 + 250;
+            let x = (x * 8 as f64) as i32 + 250;
+
+            if set {
+                draw::draw_line(last_x,last_y,x,y);
+                last_x = x;
+                last_y = y;
+            } else {
+                last_x = x;
+                last_y = y;
+                set = true;
+            }
         }
+
+        // for i  in (-250 * 1000/37)..(251 * 1000/37) {
+        //     let i = i as f64 * 0.037;
+        //     let y = (functioner(i as f64) * 8 as f64) as i32;
+        //     let i = (i * 8 as f64) as i32;
+        //     draw::draw_point(i + 250, -y + 250);
+        //     draw::draw_point(i-1 + 250, -y-1 + 250);
+        //     draw::draw_point(i+1 + 250, -y+1 + 250);
+        //     draw::draw_point(i-1 + 250, -y+1 + 250);
+        //     draw::draw_point(i+1 + 250, -y-1 + 250);
+        //     draw::draw_point(i + 250, -y-1 + 250);
+        //     draw::draw_point(i + 250, -y+1 + 250);
+        //     draw::draw_point(i-1 + 250, -y + 250);
+        //     draw::draw_point(i+1 + 250, -y-1 + 250);
+        //     draw::draw_point(i+1 + 250, -y + 250);
+        // }
     });
 
     win.end();
