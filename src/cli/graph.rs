@@ -1,6 +1,5 @@
 use fltk::*;
 
-
 fn functioner(mut x:f64) -> f64 {
     x = x/(5 as f64);
     return x * x * x;
@@ -59,7 +58,7 @@ pub fn graph() {
                 set = true;
             }
         }
-
+    });
     win.end();
     win.show();
     app.run().unwrap();
