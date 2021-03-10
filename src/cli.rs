@@ -6,6 +6,12 @@ pub mod cli {
 
     use super::{graph, parser};
 
+    fn functioner(mut x: f64) -> f64 {
+        x = x / (5 as f64);
+        return x * x * x;
+        //return x.cos() * 10 as f64;
+    }
+
     pub fn init() {
         let mut args: Vec<String> = std::env::args().collect();
 
@@ -13,20 +19,20 @@ pub mod cli {
             Some(x) => match &*x.to_lowercase() {
                 "graph" => {
                     println!("{}", "Successfully graphed!".green().bold());
-                    graph::graph();
+                    graph::graph(functioner);
                 }
                 "--help" | "-h" => {
                     print_help_message();
                 }
-    
+
                 "--version" | "-v" => {
                     print_version();
                 }
-    
+
                 "--error-test" => {
                     error("Missing argument 1.", "mathical --help");
                 }
-    
+
                 _ => {
                     println!("{}: Unknown command", "ERROR:".red());
                 }
@@ -86,5 +92,4 @@ For more information, try the command {}
             "--help".green().bold()
         );
     }
-    
 }

@@ -1,13 +1,7 @@
 use fltk::*;
 
-fn functioner(mut x:f64) -> f64 {
-    x = x/(5 as f64);
-    return x * x * x;
-    //return x.cos() * 10 as f64;
-}
-
 //construct window and graph function
-pub fn graph() {
+pub fn graph(f: fn(f64) -> f64) {
     //constants
     let app = app::App::default();
     let win_width = 500;
@@ -45,7 +39,7 @@ pub fn graph() {
 
         for x in -250 * 100/5..251 * 100/5 {
             let x = x as f64 * 0.05;
-            let y = -((functioner(x as f64) * 8 as f64) as i32) + 250;
+            let y = -((f(x as f64) * 8 as f64) as i32) + 250;
             let x = (x * 8 as f64) as i32 + 250;
 
             if set {
