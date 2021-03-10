@@ -6,8 +6,8 @@ pub mod cli {
 
     use super::{graph, parser};
 
-    fn functioner(mut x: f64) -> f64 {
-        x = x / (5 as f64);
+    fn functioner(mut x:f64) -> f64 {
+        x = x/(5 as f64);
         return x * x * x;
         //return x.cos() * 10 as f64;
     }
@@ -24,15 +24,15 @@ pub mod cli {
                 "--help" | "-h" => {
                     print_help_message();
                 }
-
+    
                 "--version" | "-v" => {
                     print_version();
                 }
-
+    
                 "--error-test" => {
                     error("Missing argument 1.", "mathical --help");
                 }
-
+    
                 _ => {
                     println!("{}: Unknown command", "ERROR:".red());
                 }
@@ -92,4 +92,5 @@ For more information, try the command {}
             "--help".green().bold()
         );
     }
+    
 }

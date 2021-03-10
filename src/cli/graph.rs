@@ -53,7 +53,6 @@ pub fn graph(f: fn(f64) -> f64) {
             }
         }
     });
-    win.end();
-    win.show();
+    
     app.run().unwrap();
 }
