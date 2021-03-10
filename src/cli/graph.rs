@@ -19,7 +19,7 @@ pub fn graph() {
     let mut win = window::Window::new(100, 100, win_width, win_height, "Mathical Graph Engine");
 
     win.draw(move || {
-        // grid
+        // grid 
         draw::set_draw_color(Color::White);
         for i in 1..num_of_lines {
             draw::draw_line(i * num_of_places, 0, i * num_of_places, 500);
