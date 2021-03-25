@@ -7,8 +7,7 @@ pub mod cli {
     use super::{graph, parser};
 
     fn functioner(mut x:f64) -> f64 {
-        x = x/(5 as f64);
-        return x * x * x;
+        return (1 as f64) * (x * x) + (20 as f64) *x - 10 as f64;
         //return x.cos() * 10 as f64;
     }
 
