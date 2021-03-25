@@ -1,3 +1,4 @@
-pub mod parser {
-    pub fn parse() {}
+
+pub fn parse() {
+    todo!()
 }
