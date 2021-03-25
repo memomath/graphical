@@ -13,11 +13,11 @@ pub fn graph(f: fn(f64) -> f64) {
     let mut win = window::Window::new(100, 100, win_width, win_height, "Mathical Graph Engine");
 
     win.draw(move || {
-        // grid 
+        // grid
         draw::set_draw_color(Color::White);
         for i in 1..num_of_lines {
             draw::draw_line(i * num_of_places, 0, i * num_of_places, 500);
-            draw::draw_line(0, i * num_of_places, 500, i * num_of_places); 
+            draw::draw_line(0, i * num_of_places, 500, i * num_of_places);
         }
 
         //lines
@@ -37,13 +37,13 @@ pub fn graph(f: fn(f64) -> f64) {
         let mut last_y = 0;
         let mut set = false;
 
-        for x in -250 * 100/5..251 * 100/5 {
+        for x in -250 * 100 / 5..251 * 100 / 5 {
             let x = x as f64 * 0.05;
             let y = -((f(x as f64) * 8 as f64) as i32) + 250;
             let x = (x * 8 as f64) as i32 + 250;
 
             if set {
-                draw::draw_line(last_x,last_y,x,y);
+                draw::draw_line(last_x, last_y, x, y);
                 last_x = x;
                 last_y = y;
             } else {
