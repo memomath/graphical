@@ -1,51 +1,48 @@
 pub mod graph;
 mod parser;
 
-pub mod cli {
-    use colored::Colorize;
+use colored::Colorize;
 
-    use super::{graph, parser};
+fn compute_function(x: f64) -> f64 {
+    // TODO: allow custom function
+    return x * x;
+}
 
-    fn functioner(mut x: f64) -> f64 {
-        return x * x;
-    }
+pub fn init() {
+    let mut args = std::env::args().skip(1).collect::<Vec<_>>();
 
-    pub fn init() {
-        let mut args: Vec<String> = std::env::args().collect();
+    if let Some(x) = args.get_mut(0) {
+        match &*x.to_lowercase() {
+            "graph" => {
+                println!("{}", "Successfully graphed!".green().bold());
+                graph::graph(compute_function);
+            }
+            "--help" | "-h" => {
+                print_help_message();
+            }
 
-        match args.get_mut(1) {
-            Some(x) => match &*x.to_lowercase() {
-                "graph" => {
-                    println!("{}", "Successfully graphed!".green().bold());
-                    graph::graph(functioner);
-                }
-                "--help" | "-h" => {
-                    print_help_message();
-                }
+            "--version" | "-v" => {
+                print_version();
+            }
 
-                "--version" | "-v" => {
-                    print_version();
-                }
+            "--error-test" => {
+                error("Missing argument 1.", "mathical --help");
+            }
 
-                "--error-test" => {
-                    error("Missing argument 1.", "mathical --help");
-                }
-
-                _ => {
-                    println!("{}: Unknown command", "ERROR:".red());
-                }
-            },
-            None => {
-                println!("{}", "Need first argument".red().bold());
-                std::process::exit(0x0001);
+            _ => {
+                println!("{}: Unknown command", "ERROR:".red());
             }
         }
-
-        let _parsed_equation: () = parser::parser::parse();
+    } else {
+        println!("{}", "Need first argument".red().bold());
+        std::process::exit(0x0001);
     }
 
-    fn print_help_message() {
-        let help_message: &str = "
+    let _parsed_equation: () = parser::parser::parse();
+}
+
+fn print_help_message() {
+    let help_message: &str = "
 Mathical Version 1.0.0
 
 USAGE:
@@ -63,20 +60,20 @@ ARGS:
     <arguments>      Arguments to the action
 ";
 
-        return println!("{}", &help_message);
-    }
+    return println!("{}", &help_message);
+}
 
-    fn print_version() {
-        let version: &str = "v1.0.0";
+fn print_version() {
+    let version: &str = "v1.0.0";
 
-        return println!("{}", &version);
-    }
+    return println!("{}", &version);
+}
 
-    pub fn error(error_message: &str, usage: &str) {
-        let colored_error: &str = &"ERROR:";
+pub fn error(error_message: &str, usage: &str) {
+    let colored_error: &str = &"ERROR:";
 
-        return println!(
-            "
+    return println!(
+        "
 {} {}
 
 USAGE:
@@ -84,10 +81,9 @@ USAGE:
 
 For more information, try the command {}
 ",
-            colored_error.red().bold(),
-            error_message,
-            usage,
-            "--help".green().bold()
-        );
-    }
+        colored_error.red().bold(),
+        error_message,
+        usage,
+        "--help".green().bold()
+    );
 }
