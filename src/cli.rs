@@ -1,5 +1,5 @@
 pub mod graph;
-mod parser;
+pub mod parser;
 
 use colored::Colorize;
 
