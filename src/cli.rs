@@ -38,7 +38,7 @@ pub fn init() {
         std::process::exit(0x0001);
     }
 
-    let _parsed_equation: () = parser::parser::parse();
+    //let _parsed_equation: () = parser::parse();
 }
 
 fn print_help_message() {
