@@ -10,7 +10,7 @@ pub fn graph(f: fn(f64) -> f64) {
     let num_of_lines = 50;
     let num_of_places = win_width / num_of_lines;
 
-    let mut win = window::Window::new(100, 100, win_width, win_height, "Mathical Graph Engine");
+    let mut win = window::Window::new(100, 100, win_width, win_height, "Graph Engine");
 
     win.draw(move || {
         // grid

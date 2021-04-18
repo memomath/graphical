@@ -3,9 +3,8 @@ pub mod parser;
 
 use colored::Colorize;
 
-fn compute_function(x: f64) -> f64 {
-    // TODO: allow custom function
-    return x * x;
+fn compute(x: f64) -> f64 {
+    return ((x * 5.0).powf(2.0) - 9.0) / ((x * 3.0).powf(2.0) + 5.0 * x + 2.0);
 }
 
 pub fn init() {
@@ -15,7 +14,7 @@ pub fn init() {
         match &*x.to_lowercase() {
             "graph" => {
                 println!("{}", "Successfully graphed!".green().bold());
-                graph::graph(compute_function);
+                graph::graph(compute);
             }
             "--help" | "-h" => {
                 print_help_message();
