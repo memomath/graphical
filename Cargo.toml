@@ -10,3 +10,4 @@ edition = "2018"
 [dependencies]
 fltk = "0.15.6"
 colored = "2.0.0"
+structopt = "0.3.26"
