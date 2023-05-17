@@ -42,10 +42,10 @@ pub fn init() {
 
 fn print_help_message() {
     let help_message: &str = "
-Mathical Version 1.0.0
+Graphical Version 1.0.0
 
 USAGE:
-mathical <action> [arguments]
+graphical <action> [arguments]
 
 FLAGS:
     -h, --help       Prints help information
